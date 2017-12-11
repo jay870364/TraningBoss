@@ -1,0 +1,5 @@
+<mat-form-field [formGroup]="group">
+  <input matInput [type]="type" [placeholder]="i18nName | translate" [formControlName]="controlName" [required]="required">
+  <mat-hint *ngIf="hint">{{hint|translate}}</mat-hint>
+  <mat-error *ngIf="control?.invalid">{{control.errors|errorMessage}}</mat-error>
+</mat-form-field>

@@ -1,0 +1,8 @@
+﻿<ng-template #baseCellTemplate let-value let-entry="entry" let-index="index">
+  <span *ngIf="!editing" [innerText]="(enumType[i18nKey]?(enumType[i18nKey]+'.'):'')+enumType[value]|translate"></span>
+  <boss-dropdownlist [options]="options" [optionsI18nNamespace]="optionsI18nNamespace" *ngIf="editing && autoGridEdit.formArray.controls[index]"
+    [i18nNamespace]="autoGridEdit.i18nNamespace" [group]="autoGridEdit.formArray.controls[index]" [controlName]="field">
+
+  </boss-dropdownlist>
+</ng-template>
+<ng-template #baseHeaderTemplate let-header><span [innerText]="getHeader()|translate"></span></ng-template>

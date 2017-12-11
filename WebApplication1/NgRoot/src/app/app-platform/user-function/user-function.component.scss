@@ -1,0 +1,17 @@
+.grid {
+  margin-top: 40px;
+  /deep/ .permession {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    boss-radiolist {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+
+
+form {
+  display: flex;
+}

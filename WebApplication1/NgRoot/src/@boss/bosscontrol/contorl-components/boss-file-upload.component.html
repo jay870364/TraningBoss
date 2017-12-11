@@ -1,0 +1,19 @@
+<div class="file-uploader">
+  <label class="placeholder-color">{{i18nName | translate}}</label>
+  <div class="upload-container">
+    <button (click)="file.click()" *ngIf="!control.disabled" mat-button>
+      <mat-icon color="primary">add</mat-icon>
+      <span>{{'BossControl.選擇檔案'|translate}}</span>
+      <span *ngIf="extLimit&&extLimit.length">({{extLimit.join(',')}})</span>
+    </button>
+    <boss-file [fileCodes]="control.value" [layout]="layout" [showDeleteButton]="!control.disabled" (itemDelete)="deleteItem($event)"
+      (itemUp)="itemMove($event,-1)" (itemDown)="itemMove($event,1)">
+
+    </boss-file>
+  </div>
+  <boss-error>
+    {{control?.errors|errorMessage}}
+  </boss-error>
+  <input type="file" [attr.multiple]="fileCountLimit>=2?'multiple':undefined" (change)="fileChanged(file.files);file.value=''"
+    #file hidden />
+</div>

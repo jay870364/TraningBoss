@@ -1,0 +1,16 @@
+<h2 matDialogTitle>{{message.Message}}<span *ngIf="detail && message.ExceptionType">({{message.ExceptionType}})</span></h2>
+<mat-dialog-content>
+  <p *ngIf="detail">{{message.ExceptionMessage}}</p>
+  <pre *ngIf="detail">{{message.StackTrace}}</pre>
+  <ul *ngIf="modelState">
+    <li *ngFor="let e of modelState">
+      <label>{{e.field}}</label>
+      <ul>
+        <li *ngFor="let ed of e.errors">{{ed}}</li>
+      </ul>
+    </li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="accent" matDialogClose="">{{'BossControl.確定'|translate}}</button>
+</mat-dialog-actions>

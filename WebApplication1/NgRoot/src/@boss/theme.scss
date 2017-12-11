@@ -1,0 +1,67 @@
+﻿@import './colors.scss';
+@include angular-material-theme($app-theme);
+@media not print {
+  .dark-theme {
+    @include angular-material-theme($app-dark-theme);
+  }
+}
+
+.primary-color {
+  color: $app-primary-color;
+}
+
+.warn-color {
+  color: $app-warn-color;
+}
+
+.accent-color {
+  color: $app-accent-color;
+}
+
+.auto-color {
+  @include color();
+  @include bgcolor();
+}
+
+.placeholder-color {
+  @include placeholder-color();
+  font-size: 75%;
+}
+
+a[href] {
+  color: $app-primary-color;
+}
+
+.mat-input-element:disabled {
+  @include color();
+}
+
+mat-form-field boss-error {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  font-size: 75%;
+}
+
+[grid-cell-content] {
+  .mat-select {
+    padding-top: 0;
+  }
+  boss-textarea {
+    width: 100%;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+[bossautofloating] {
+  position: fixed;
+  &.floating {
+    margin-top: 0;
+    @include bgcolor();
+    z-index: 2;
+  }
+}
+
+//參考 https://www.materialpalette.com

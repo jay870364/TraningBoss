@@ -1,0 +1,22 @@
+﻿<ng-container *ngFor="let m of menu" [ngTemplateOutlet]="menuTpml" [nngTemplateOutletContext="{menu:m}">
+</ng-container>
+<ng-template let-menu="menu" #menuTpml>
+  <ng-container *ngIf="menu.child&&menu.child.length">
+    <fieldset>
+      <legend>{{menu.title}}</legend>
+      <div class="feildset-content">
+        <ng-container *ngFor="let menu of menu.child" [ngTemplateOutlet]="menuTpml" [ngTemplateOutletContext]="{menu:menu}"></ng-container>
+      </div>
+    </fieldset>
+  </ng-container>
+  <ng-container *ngIf="!menu.child || !menu.child.length">
+    <mat-card class="menu-card" *ngIf="!menu.click" [routerLink]="[menu.path]">
+      <mat-icon>{{menu.icon}}</mat-icon>
+      <span>{{menu.title}}</span>
+    </mat-card>
+    <mat-card class="menu-card" *ngIf="menu.click" (click)="menu.click()">
+      <mat-icon>{{menu.icon}}</mat-icon>
+      <span>{{menu.title}}</span>
+    </mat-card>
+  </ng-container>
+</ng-template>

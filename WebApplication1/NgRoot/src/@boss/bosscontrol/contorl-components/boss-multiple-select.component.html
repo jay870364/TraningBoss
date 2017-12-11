@@ -1,0 +1,24 @@
+<div>
+  <div class="container" [class.expanded]="p.expanded">
+    <mat-expansion-panel #p (closed)="filterStr=''">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{i18nName|translate}}
+        </mat-panel-title>
+        <mat-panel-description>{{'BossControl.已選擇'|translate}}: {{selected.length}}</mat-panel-description>
+      </mat-expansion-panel-header>
+      <form autocomplete="off">
+        <mat-form-field>
+          <input matInput name="filterStr" [(ngModel)]="filterStr">
+        </mat-form-field>
+      </form>
+      <div class="list" [formGroup]="innerGroup">
+        <ng-container [formGroupName]="i" *ngFor="let option of _options;let i = index">
+          <mat-checkbox [value]="option.value" formControlName="checked" [ngStyle]="{display:(filterStr && option.text.toLowerCase().indexOf(filterStr.toLowerCase())===-1)?'none':''}">
+            {{optionsI18nNamespace?(optionsI18nNamespace+'.'+option.text|translate):option.text}}</mat-checkbox>
+        </ng-container>
+      </div>
+    </mat-expansion-panel>
+  </div>
+  <boss-error>{{group.get(controlName).errors|errorMessage}}</boss-error>
+</div>

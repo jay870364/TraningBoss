@@ -1,0 +1,9 @@
+<div [formGroup]="innerGroup">
+  <label *ngIf="showHeader">{{i18nName|translate}}</label>
+  <div class="container">
+    <div *ngFor="let option of _options;let i=index;" [formGroupName]="i">
+      <mat-checkbox formControlName="Checked">{{optionsI18nNamespace?(optionsI18nNamespace+'.'+option.text|translate):option.text}}</mat-checkbox>
+    </div>
+  </div>
+  <boss-error>{{control.errors|errorMessage}}</boss-error>
+</div>

@@ -1,0 +1,44 @@
+<div class="list" [attr.fileLayout]="layout">
+  <div class="item" *ngFor="let key of fileKeys;let i =index;let last=last;let first=first;">
+    <ng-container *ngIf="fileinfoMap[key]">
+      <div class="control" *ngIf="showDeleteButton">
+        <button mat-icon-button (click)="itemUp.emit(key)" [disabled]="first">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="itemDelete.emit(key)">
+          <mat-icon>close</mat-icon>
+        </button>
+        <button mat-icon-button (click)="itemDown.emit(key)" [disabled]="last">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+      <div class="box">
+        <div class="preview" *ngIf="layout=='both'||layout=='preview'">
+          <ng-container [ngSwitch]="getFileType(fileinfoMap[key])">
+            <ng-container *ngSwitchCase="'image'">
+              <img [src]="fileManagement.getFileUrl(key,fileinfoMap[key])" [alt]="fileinfoMap[key].Name" [ngClass]="{'preview-l':previewSize=='l','preview-m':previewSize=='m','preview-s':previewSize=='s'}"
+              />
+            </ng-container>
+            <ng-container *ngSwitchCase="'video'">
+              <video controls [ngClass]="{'preview-l':previewSize=='l','preview-m':previewSize=='m','preview-s':previewSize=='s'}">
+                <source [src]="fileManagement.getFileUrl(key,fileinfoMap[key])" [type]="fileinfoMap[key].ContentType" />
+              </video>
+            </ng-container>
+            <ng-container *ngSwitchCase="'audio'">
+              <audio controls [ngClass]="{'preview-l':previewSize=='l','preview-m':previewSize=='m','preview-s':previewSize=='s'}">
+                <source [src]="fileManagement.getFileUrl(key,fileinfoMap[key])" [type]="fileinfoMap[key].ContentType" />
+              </audio>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              <mat-icon class="file-icon" [ngClass]="{'preview-l':previewSize=='l','preview-m':previewSize=='m','preview-s':previewSize=='s'}">insert_drive_file</mat-icon>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div class="link" *ngIf="layout=='both'||layout=='text'">
+          <a [href]="fileManagement.getFileUrl(key,fileinfoMap[key])" target="_blank">{{fileinfoMap[key].Name}}</a>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

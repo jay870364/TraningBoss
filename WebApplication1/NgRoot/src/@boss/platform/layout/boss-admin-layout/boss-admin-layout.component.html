@@ -1,0 +1,34 @@
+﻿<mat-sidenav-container>
+  <mat-sidenav mode="side" class="main-sidemav">
+    <ng-container *ngIf="logined">
+      <div *ngIf="userInfo" class="username">{{userInfo.UserName}}</div>
+      <app-menu-item class="app-menu-root" *ngFor="let menuItem of menuProvider.menu | async" [menuItem]="menuItem"></app-menu-item>
+      <app-menu-item class="app-menu-root" [menuItem]="logoutMenuItem"></app-menu-item>
+    </ng-container>
+
+  </mat-sidenav>
+  <div class="main-layout">
+    <mat-toolbar class="main-top-bar" color="primary">
+      <button *ngIf="logined" [color]="hostClass=='light-theme'?'accent':''" class="btn-toggle-menu" mat-button (click)="toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div *ngIf="userInfo" class="systemname">
+        {{userInfo.SystemName}}
+      </div>
+      <mat-form-field class="theme">
+        <mat-select [placeholder]="'Platform.Theme'|translate" (change)="themeChange()" [(ngModel)]="hostClass">
+          <mat-option value="light-theme">{{'Platform.ThemeOptions.Light'|translate}}</mat-option>
+          <mat-option value="dark-theme">{{'Platform.ThemeOptions.Dark'|translate}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </mat-toolbar>
+    <!-- <navi-bar></navi-bar> -->
+    <div class="main-content" bossAutoFloatingHost="main">
+      <ng-content></ng-content>
+    </div>
+    <div *ngIf="loading" [attr.data-http-request]="httpRequest" class="main-loader">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</mat-sidenav-container>

@@ -1,0 +1,15 @@
+  button[matSuffix] {
+    line-height: 0;
+    mat-icon {
+      .material-icons {
+        display: block !important
+      }
+    }
+  }
+
+  :host {
+    display: flex;
+    mat-form-field {
+      flex: 1 1 0;
+    }
+  }

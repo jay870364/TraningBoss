@@ -1,0 +1,7 @@
+<div [formGroup]="group">
+  <label *ngIf="showHeader">{{i18nName|translate}}</label>
+  <mat-radio-group [formControlName]="controlName">
+    <mat-radio-button *ngFor="let option of (options||(optionsObservable|async))" [value]="option.value">{{optionsI18nNamespace?(optionsI18nNamespace+'.'+option.text|translate):option.text}}</mat-radio-button>
+  </mat-radio-group>
+  <boss-error>{{group.get(controlName).errors|errorMessage}}</boss-error>
+</div>

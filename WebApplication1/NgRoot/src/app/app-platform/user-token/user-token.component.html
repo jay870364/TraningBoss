@@ -1,0 +1,33 @@
+<boss-layout [formGroup]="formGroup">
+  <boss-row>
+    <div>
+      <button mat-raised-button type="button" [routerLink]="['/platform','user']" queryParamsHandling="merge">{{'BossControl.取消'|translate}}</button>
+    </div>
+  </boss-row>
+  <boss-row>
+    <div>
+      <mat-form-field>
+        <input matInput type="datetime-local" formControlName="ExpireTime" [placeholder]="'Model.Platform.PlatformUser.Expire'|translate"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" min="0" formControlName="AutoRenewDays" [placeholder]="'Model.Platform.PlatformUser.AutoRenewDays'|translate"
+        />
+      </mat-form-field>
+      <button color="primary" (click)="createToken()" mat-raised-button type="button">{{'BossControl.產生'|translate}}</button>
+    </div>
+  </boss-row>
+  <boss-row>
+    <mat-form-field>
+      <textarea matInput placeholder="Request Header Authorization:" rows="3" formControlName="Token"></textarea>
+    </mat-form-field>
+  </boss-row>
+  <boss-row>
+    <mat-form-field>
+      <textarea matInput placeholder="querystring auth=" rows="3" formControlName="EncodedToken"></textarea>
+    </mat-form-field>
+  </boss-row>
+  <boss-row>
+    <span class="warn-color">{{'Model.Platform.PlatformUser.Token說明'|translate}}</span>
+  </boss-row>
+</boss-layout>

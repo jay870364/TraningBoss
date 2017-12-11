@@ -1,0 +1,41 @@
+:host {
+  flex-grow: 1;
+  form {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 0;
+    height: 100%;
+    justify-content: flex-start;
+    >div {
+      flex: 1 1 0;
+    }
+    .filters {
+      padding-left: 5px;
+      padding-right: 5px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      >boss-control-wrapper /deep/ {
+        margin-left: 5px;
+        >boss-multiple-select,
+        >boss-reference {
+          min-width: 300px;
+        }
+        >* {
+          min-width: 220px;
+        }
+      }
+    }
+    .acitons {
+      display: flex;
+      flex-direction: column;
+      max-width: 100px;
+      button {
+        flex: 1 1 auto;
+        max-height: 70px;
+        margin: 2px;
+      }
+    }
+  }
+}

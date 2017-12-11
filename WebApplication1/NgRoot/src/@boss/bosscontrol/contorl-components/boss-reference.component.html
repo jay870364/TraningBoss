@@ -1,0 +1,7 @@
+<mat-form-field>
+  <input matInput [placeholder]="i18nName | translate" [disabled]="control?.disabled" [(ngModel)]="displayText"
+    #model="ngModel" readonly="true">
+  <button *ngIf="!control?.disabled" mat-button type="button" matSuffix (click)="openSelector()"><mat-icon>search</mat-icon></button>
+  <button *ngIf="!control?.disabled" mat-button type="button" matSuffix (click)="control?.setValue(null)"><mat-icon>close</mat-icon></button>
+  <mat-error>{{control?.errors|errorMessage}}</mat-error>
+</mat-form-field>

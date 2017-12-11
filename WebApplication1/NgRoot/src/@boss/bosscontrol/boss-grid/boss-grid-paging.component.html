@@ -1,0 +1,17 @@
+<div class="footer-item-container grid-control">
+  <button mat-button (click)="this.refresh()" [disabled]="!enabled"><mat-icon>refresh</mat-icon></button>
+  <button mat-button (click)="this.page=this.page-1" [disabled]="this.page==1||!enabled"><mat-icon>skip_previous</mat-icon></button>
+  <input class="page" type="number" min="1" [disabled]="!enabled" [max]="this.totalPage" [value]="page" (input)="this.page=$event.target.value"
+  />
+  <div>/{{this.totalPage}}</div>
+  <button mat-button (click)="this.page=this.page+1" [disabled]="this.page>=this.totalPage||!enabled"> <mat-icon>skip_next</mat-icon></button>
+  <mat-select [disabled]="!enabled" floatPlaceholder="never" [ngModel]="this.pagingData.pageOptionValue" (ngModelChange)="this.changePageSize($event)">
+    <mat-option *ngFor="let o of this.pageOptions" [value]="o">
+      {{o}}
+    </mat-option>
+  </mat-select>
+  <div class="total">
+    <mat-icon>equalizer</mat-icon>
+    <div class="totalNumber" [innerText]="naN(this.length)?'...':(this.length)"></div>
+  </div>
+</div>

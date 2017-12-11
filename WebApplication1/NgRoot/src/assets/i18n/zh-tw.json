@@ -1,0 +1,248 @@
+{
+  "Platform": {
+    "Theme": "佈景主題",
+    "ThemeOptions": {
+      "Dark": "深色",
+      "Light": "淺色"
+    }
+  },
+  "Common": {
+    "All": "全部"
+  },
+  "BossControl": {
+    "查詢": "查詢",
+    "修改": "修改",
+    "編輯": "編輯",
+    "刪除": "刪除",
+    "儲存": "儲存",
+    "取消": "取消",
+    "新增": "新增",
+    "清除": "清除",
+    "重設": "重設",
+    "返回列表": "返回列表",
+    "False": "否",
+    "True": "是",
+    "選擇": "選擇",
+    "確認刪除": "確認刪除?",
+    "SelectReference": "選擇項目",
+    "查無資料": "查無資料",
+    "確定": "確定",
+    "複製": "複製",
+    "產生": "產生",
+    "已選擇": "已選擇",
+    "選擇檔案": "選擇檔案",
+    "不符合副檔名限制": "不符合副檔名限制",
+    "檔案大小超過": "檔案大小超過{{limit}}KB",
+    "確認檔案": "確認上傳這些檔案?",
+    "GIFWarn": "GIF如為動畫擷取後將移除動畫效果",
+    "擷取圖片": "擷取圖片"
+  },
+  "Model": {
+    "HelloWorld": {
+      "News": {
+
+        "Id": "Id",
+        "Title": "Title",
+        "Images": "Image",
+        "Content": "內文",
+        "CreatedTime": "CreatedTime",
+        "CreatedBy": "CreatedBy",
+        "LastModifiedTime": "LastModifiedTime",
+        "LastModifiedBy": "LastModifiedBy",
+        "CategoryId": "CategoryId",
+        "Category.Name": "Category"
+      },
+      "ViewModels": {
+        "category": {
+          "Name": "名稱"
+        }
+      },
+      "Category": {
+        "Name": "名稱",
+        "NewsCount":"最新消息數量"
+      }
+    },
+    "Platform": {
+      "MenuItem": {
+        "Type": "類型",
+        "Name": "名稱",
+        "FunctionDeveloperName": "功能代碼",
+        "Url": "網址",
+        "CategoryName": "目錄名稱",
+        "無項目": "無項目",
+        "Icon": "項目圖示"
+      },
+      "Menu": {
+        "Name": "名稱",
+        "Items": "項目"
+      },
+      "PlatformUser": {
+        "群組": "群組",
+        "權限": "權限",
+        "產生Token": "產生Token",
+        "Email": "Email",
+        "Account": "帳號",
+        "Password": "密碼",
+        "ConfirmPassword": "確認密碼",
+        "Status": "狀態",
+        "Name": "名稱",
+        "Owner": "公司",
+        "Owner.Name": "公司",
+        "OwnerId": "公司",
+        "Expire": "到期時間",
+        "Token說明": "如更改密碼Token會失效"
+      },
+      "PlatformSystem": {
+        "Code": "系統代碼",
+        "Name": "系統名稱",
+        "Remark": "備註",
+        "Status": "啟用狀態"
+      },
+      "Account": {
+        "Code": "客戶代碼",
+        "ParentAccountId": "上層客戶",
+        "Name": "名稱",
+        "FullName": "全名",
+        "EName": "英文名稱",
+        "InvoiceTitle": "發票號碼",
+        "TaxIDNumber": "TaxIDNumber",
+        "Telephone": "電話",
+        "Fax": "傳真",
+        "ZipCode": "郵遞區號",
+        "Address": "地址",
+        "Remark": "備註",
+        "ContactPersonName": "姓名",
+        "ContactPersonEName": "英文姓名",
+        "JobTitle": "職位",
+        "ContactPersonTelephone": "電話",
+        "ContactPersonFax": "傳真",
+        "ContactPersonAddress": "地址",
+        "ContactPersonBackupEmail": "被用電子郵件",
+        "ContactPersonRemark": "備註",
+        "Status": "啟用狀態",
+        "系統設定": "系統設定",
+        "網域設定": "網域設定",
+        "Detail": "詳細資料",
+        "Contact": "聯絡人",
+        "ParentAccount": "上層客戶名稱"
+      },
+      "Role": {
+        "Name": "名稱",
+        "Remark": "備註",
+        "Status": "啟用狀態",
+        "AccountSystem": {
+          "Name": "客戶系統",
+          "Owner.Name": "客戶",
+          "OwnerId": "客戶",
+          "System.Name": "系統",
+          "SystemId": "系統"
+        }
+      },
+      "FunctionDetail": {
+        "Id": "功能名稱",
+        "Permission": "授權"
+      },
+      "SystemFunction": {
+        "SystemId": "所屬系統",
+        "DeveloperName": "DeveloperName",
+        "Name": "名稱",
+        "Status": "啟用狀態"
+      },
+      "SystemDomainBinding": {
+        "Domain": "網域",
+        "Status": "啟用狀態",
+        "AccountSystemId": "客戶系統",
+        "AccountSystem": {
+          "Name": "客戶系統",
+          "Owner.Name": "客戶",
+          "OwnerId": "客戶",
+          "System.Name": "系統",
+          "SystemId": "系統"
+        }
+      },
+      "AccountSystem": {
+        "FavIcon": "圖示",
+        "Background": "背景圖片",
+        "網域設定": "網域設定",
+        "Name": "名稱",
+        "ActiveTime": "啟用時間",
+        "ExpiryTime": "到期時間",
+        "SystemId": "指定系統",
+        "OwnerId": "授權客戶",
+        "Status": "啟用狀態",
+        "MenuId": "指定選單(選)",
+        "Menu.Name": "指定選單"
+      },
+      "AccountSystemRef": {
+        "Name": "名稱",
+        "OwnerId": "客戶",
+        "SystemId": "系統"
+      }
+    }
+  },
+  "ModulesFunctions": {
+    "Bossinfo.Module.Northwind.Orders": "訂單管理",
+    "Bossinfo.Module.GenericManagement.Role": "群組管理",
+    "Bossinfo.Module.GenericManagement.User": "使用者管理",
+    "Bossinfo.Module.HelloWorld.News": "最新消息",
+    "Bossinfo.Module.HelloWorld.Category": "分類"
+  },
+  "Modules": {
+    "Bossinfo.Module.Platform": "平台模組"
+  },
+  "Roles": {
+    "Create": "新增",
+    "Delete": "刪除",
+    "View": "檢視",
+    "Modify": "修改",
+    "CreateToken": "產生Token",
+    "LoginToUser": "代理登入"
+  },
+  "Function": {
+    "PlatformSystem": {
+      "Module": "模組",
+      "AllModules": "全部模組"
+    }
+  },
+  "ServerMessage": {
+    "ValidationError": "驗證錯誤",
+    "ErrorMessage": "錯誤訊息"
+  },
+  "Validation": {
+    "Duplicate": "已存在"
+  },
+  "FormErrors": {
+    "maxlength": "不能超過{{requiredLength}}個字",
+    "required": "必填",
+    "sameAs": "必須和 {{compareWith}} 相同",
+    "fileCountLimit": "只能上傳{{limit}}個檔案，目前有{{current}}個"
+  },
+  "Enums": {
+    "DataStatus": {
+      "Enabled": "啟用",
+      "Disabled": "停用"
+    },
+    "MenuItemType": {
+      "Function": "功能",
+      "Iframe": "內嵌網址",
+      "OpenLink": "另開網址"
+    },
+    "FunctionPermissionStatus": {
+      "Denied": "禁止",
+      "NotSet": "未設定",
+      "Granted": "授權"
+    }
+  },
+  "Login": {
+    "Account": "帳號",
+    "Password": "密碼",
+    "AccountSystemId": "系統",
+    "Login": "登入",
+    "帳號或密碼錯誤": "帳號或密碼錯誤",
+    "使用者帳號未啟用": "使用者帳號未啟用",
+    "尚未授權此系統": "尚未授權此系統"
+  },
+  "System": {
+    "PageNotFound": "找不到頁面!"
+  }
+}

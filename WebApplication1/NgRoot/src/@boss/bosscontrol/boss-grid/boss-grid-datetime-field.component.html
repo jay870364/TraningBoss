@@ -1,0 +1,6 @@
+﻿<ng-template #baseCellTemplate let-value let-entry="entry">
+  <span [innerText]="(getCellValue(entry,value) |amAdd: timeZoneOffset : 'minutes' | amDateFormat:format)||''"></span>
+</ng-template>
+<ng-template #baseHeaderTemplate let-header>
+  <span [innerHtml]="getHeader()|translate"></span>
+</ng-template>

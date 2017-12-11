@@ -1,0 +1,14 @@
+:host {
+  flex: 1 1 auto;
+  max-width: 100%;
+  display: flex;
+  position: relative;
+  /deep/ .mat-input-flex {
+    margin-bottom: -2px;
+  }
+  .no-value-text {
+    position: absolute;
+    top: 14px;
+    left: 2px;
+  }
+}

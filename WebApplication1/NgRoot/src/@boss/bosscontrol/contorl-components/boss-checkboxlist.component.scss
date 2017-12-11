@@ -1,0 +1,25 @@
+.container {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  mat-checkbox {
+    line-height: 21px;
+    margin-right: 10px;
+  }
+}
+
+:host {
+  >div {
+    display: flex;
+    flex-direction: column;
+    boss-error {
+      display: none;
+    }
+    .ng-touched.ng-invalid {
+      +boss-error {
+        display: block;
+      }
+      border-bottom:2px solid red;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+<div [formGroup]="group">
+  <span class="title" [innerText]="i18nName | translate"></span>
+  <mat-slide-toggle [formControlName]="controlName">{{(group.get(controlName).value?'BossControl.True':'BossControl.False')|translate}}</mat-slide-toggle>
+</div>

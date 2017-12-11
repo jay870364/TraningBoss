@@ -1,0 +1,9 @@
+fieldset {
+  .roles {
+    display: flex;
+    flex-wrap: wrap;
+    mat-checkbox {
+      margin-right: 20px;
+    }
+  }
+}

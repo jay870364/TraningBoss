@@ -1,0 +1,66 @@
+<form [formGroup]="formGroup">
+  <boss-layout>
+    <boss-row layout="left" class="actions" bossAutoFloating="main">
+      <boss-default-actions backUrl="/platform/menu"></boss-default-actions>
+    </boss-row>
+    <boss-row>
+      <mat-form-field>
+        <input matInput formControlName="Name" required [placeholder]="'Model.Platform.Menu.Name'|translate">
+      </mat-form-field>
+    </boss-row>
+    <boss-row>
+      <fieldset>
+        <legend>{{'Model.Platform.Menu.Items'|translate}}</legend>
+        <button *ngIf="!form.isReadonly" mat-icon-button type="button" (click)="addChild(formGroup.get('Items'),menuItemType.Category)"><mat-icon>add</mat-icon><mat-icon>folder</mat-icon></button>
+        <button *ngIf="!form.isReadonly" mat-icon-button type="button" (click)="addChild(formGroup.get('Items'),menuItemType.Function)"><mat-icon>add</mat-icon><mat-icon>menu</mat-icon></button>
+        <ng-container [ngTemplateOutlet]="tpml" [ngTemplateOutletContext]="{array:formGroup.get('Items')}"></ng-container>
+      </fieldset>
+    </boss-row>
+  </boss-layout>
+</form>
+<ng-template let-array="array" #tpml>
+  <ul class="item-container" [formGroup]="array">
+    <li *ngIf="array.controls.length==0">{{'Model.Platform.MenuItem.無項目'|translate}}</li>
+    <ng-container *ngFor="let item of array.controls;let i = index;let last=last">
+      <li class="item" [formGroupName]="i">
+        <button *ngIf="!form.isReadonly" class="del-btn" mat-icon-button type="button" (click)="removeChild(array,i)"><mat-icon>close</mat-icon></button>
+        <div class="ordering" *ngIf="!form.isReadonly">
+          <button mat-icon-button type="button" (click)="orderingUp(array,i)" [disabled]="!i"><mat-icon>keyboard_arrow_up</mat-icon></button>
+          <button mat-icon-button type="button" (click)="orderingDown(array,i)" [disabled]="last"><mat-icon>keyboard_arrow_down</mat-icon></button>
+        </div>
+        <ng-container *ngIf="item.value.Type!==menuItemType.Category">
+          <div class="menu zone">
+            <mat-form-field [floatPlaceholder]="false">
+              <input matInput formControlName="Name" required [placeholder]="'Model.Platform.MenuItem.Name'|translate">
+            </mat-form-field>
+            <mat-form-field [floatPlaceholder]="false">
+              <input matInput formControlName="Icon" [placeholder]="'Model.Platform.MenuItem.Icon'|translate">
+              <mat-icon matPrefix>{{item.value.Icon}}</mat-icon>
+            </mat-form-field>
+            <mat-select required [placeholder]="'Model.Platform.MenuItem.Type'|translate" (change)="typeChanged(item)" formControlName="Type">
+              <mat-option *ngFor="let type of typeOptions" [value]="type.value">
+                {{ 'Enums.MenuItemType.'+type.text|translate }}
+              </mat-option>
+            </mat-select>
+            <mat-form-field class="long" *ngIf="item.value.Type!==menuItemType.Function">
+              <input matInput formControlName="Url" required [placeholder]="'Model.Platform.MenuItem.Url'|translate">
+            </mat-form-field>
+            <boss-reference [modelType]="functionDetailModel" [group]="array.at(i)" i18nNamespace="Model.MenuItem" controlName="FunctionDeveloperName"
+              field="Name" *ngIf="item.value.Type===menuItemType.Function">
+            </boss-reference>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="item.value.Type===menuItemType.Category">
+          <div class="category zone">
+            <mat-form-field>
+              <input matInput formControlName="Name" required [placeholder]="'Model.Platform.MenuItem.CategoryName'|translate">
+              <button *ngIf="!form.isReadonly" matSuffix mat-button type="button" (click)="addChild(item.get('MenuItems'),menuItemType.Category,item.get('RelationId').value)"><mat-icon>add</mat-icon><mat-icon>folder</mat-icon></button>
+              <button *ngIf="!form.isReadonly" matSuffix mat-button type="button" (click)="addChild(item.get('MenuItems'),menuItemType.Function,item.get('RelationId').value)"><mat-icon>add</mat-icon><mat-icon>menu</mat-icon></button>
+            </mat-form-field>
+            <ng-container [ngTemplateOutlet]="tpml" [ngTemplateOutletContext]="{array:item.get('MenuItems')}"></ng-container>
+          </div>
+        </ng-container>
+      </li>
+    </ng-container>
+  </ul>
+</ng-template>

@@ -1,0 +1,10 @@
+<form *ngIf="form.formGroup" autocomplete="false" (ngSubmit)="submitForm()">
+  <div class="filters">
+    <boss-control-wrapper [ngStyle]="filter.formControl?.warpperControl?.styles" [ngClass]="filter.formControl?.warpperControl?.classes" *ngFor="let filter of form.filters" [metadata]="filter.formControl"></boss-control-wrapper>
+  </div>
+  <div class="acitons">
+    <button mat-raised-button type="button" *ngIf="form.filters.length" (click)="reset()">{{'BossControl.清除'|translate}}</button>
+    <button mat-raised-button type="submit" color="primary">{{'BossControl.查詢'|translate}}</button>
+  </div>
+
+</form>

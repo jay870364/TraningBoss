@@ -1,0 +1,39 @@
+<boss-row layout="left" class="actions" bossAutoFloating="main">
+    <button mat-raised-button type="button" *ngIf="userRole.hasRole('Modify')" color="primary" (click)="save()">{{'BossControl.儲存'|translate}}</button>
+    <button mat-raised-button type="button"  *ngIf="userRole.hasRole('Modify')" (click)="reset()">{{'BossControl.重設'|translate}}</button>
+    <button mat-raised-button type="button" [routerLink]="['/platform','user']" queryParamsHandling="merge">{{'BossControl.取消'|translate}}</button>
+  </boss-row>
+<ng-container *ngIf="systemFunction">
+  <div class="grid" *ngFor="let sf of systemFunction">
+    <boss-grid #functionGrid [sorting]="false" [scrolling]="false" [datasource]="dsfac.getDataSource(sf.functions)">
+      <boss-grid-header>
+        {{sf.accountSystemName}}
+      </boss-grid-header>
+      <boss-grid-field field="name" header="Id" verticalAlign="center"   i18nNamespace="Model.Platform.FunctionDetail" cellI18nNamesapce="ModulesFunctions"></boss-grid-field>
+      <boss-grid-field field="Permission" width="460px"  [cellClass]="{permession:true}"  i18nNamespace="Model.Platform.FunctionDetail">
+        <boss-grid-cell-template>
+          <ng-template let-entry="entry" let-i="index">
+            <boss-grid [showHeader]="false" [scrolling]="false" [raised]="false" [datasource]="entry.roles">
+              <boss-grid-field width="150px" field="name" header="Name" align="center" verticalAlign="center">
+                <boss-grid-cell-template>
+                  <ng-template let-value>
+                    {{'Roles.'+value|translate}}
+                  </ng-template>
+                </boss-grid-cell-template>
+              </boss-grid-field>
+              <boss-grid-field align="center" verticalAlign="center" display="flex">
+                <boss-grid-cell-template>
+                  <ng-template let-role="entry" let-value let-j="index">
+                    <boss-radiolist [showHeader]="false" controlName="Permission" [optionsI18nNamespace]="permessionStatus[enumI18nKey]"
+                      [group]="role.control" [options]="options" i18nNamespace="Model.Role">
+                    </boss-radiolist>
+                  </ng-template>
+                </boss-grid-cell-template>
+              </boss-grid-field>
+            </boss-grid>
+          </ng-template>
+        </boss-grid-cell-template>
+      </boss-grid-field>
+    </boss-grid>
+  </div>
+</ng-container>

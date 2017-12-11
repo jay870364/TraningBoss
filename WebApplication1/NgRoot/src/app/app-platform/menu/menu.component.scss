@@ -1,0 +1,54 @@
+@import '../../../@boss/colors.scss';
+.item {
+  display: flex;
+  align-items: center;
+  >.menu {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >* {
+      margin-right: 5px;
+      flex: 1 1 0;
+    }
+    >mat-select {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.del-btn {
+  color: red;
+}
+
+.ordering {
+  display: flex;
+  flex-direction: column;
+}
+
+ul.item-container {
+  list-style: none;
+  flex-grow: 1;
+  flex: 1 1 auto;
+  padding: 0;
+  margin: 5px;
+  .del-btn:hover~.zone {
+    background: repeating-linear-gradient( 135deg, rgba(255, 00, 00, 0.5), rgba(255, 00, 00, 0.5) 10px, rgba(255, 00, 00, 0.1) 10px, rgba(255, 00, 00, 0.1) 20px);
+  }
+}
+
+.long {
+  flex-grow: 1;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex: 1 1 auto;
+  border: 1px solid #aaa;
+  height: auto;
+  >mat-form-field {
+    width: 100%;
+  }
+}

@@ -1,0 +1,1 @@
+<boss-auto-grid *ngIf="userRole.hasRole('View')" [modelType]="modelType" #autoGrid [actions]="actions" [showCreate]="userRole.hasRole('Create')" [autoLoad]="true"></boss-auto-grid>

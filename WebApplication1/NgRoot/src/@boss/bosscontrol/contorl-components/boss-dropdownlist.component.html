@@ -1,0 +1,7 @@
+<mat-form-field [formGroup]="group">
+  <mat-select [formControlName]="controlName" class="select" #select="matSelect" [placeholder]="i18nName|translate">
+    <mat-option *ngFor="let option of options" [value]="option.value">{{optionsI18nNamespace?(optionsI18nNamespace+'.'+option.text|translate):option.text}}</mat-option>
+  </mat-select>
+  <mat-hint *ngIf="hint">{{hint|translate}}</mat-hint>
+  <mat-error *ngIf="control?.invalid">{{control.errors|errorMessage}}</mat-error>
+</mat-form-field>

@@ -1,0 +1,33 @@
+﻿* {
+  font-family: 'Noto Sans CJK TC', '微軟正黑體', 'Noto Sans';
+}
+
+html,
+body,
+material-app,
+.main-sidenav,
+.main-layout {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+@media only print {
+  .main-top-bar {
+    display: none !important;
+    ~navi-bar {
+      display: none!important;
+    }
+  }
+  mat-sidenav {
+    display: none!important;
+  }
+  button {
+    display: none!important;
+  }
+}

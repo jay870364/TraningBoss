@@ -1,0 +1,451 @@
+{
+  "Platform": {
+    "Theme": "Theme",
+    "ThemeOptions": {
+      "Dark": "Dark",
+      "Light": "Light"
+    }
+  },
+  "Common": {
+    "All": "All"
+  },
+  "BossControl": {
+    "查詢": "Query",
+    "修改": "Edit",
+    "編輯": "Edit",
+    "刪除": "Delete",
+    "儲存": "Save",
+    "取消": "Cancel",
+    "新增": "Create New",
+    "清除": "Clear",
+    "重設": "Reset",
+    "返回列表": "Back to List",
+    "False": "Off",
+    "True": "On",
+    "選擇": "Select",
+    "確認刪除": "Confirm Delete?",
+    "SelectReference": "Select Item",
+    "查無資料": "No Data",
+    "確定": "Yes",
+    "複製": "Clone",
+    "產生": "Generate",
+    "已選擇": "Selected"
+  },
+
+  "Model": {
+    "ViewModel.PlatformUser.OwnerId+Model.ViewModel.PlatformUser.Account": "Account",
+    "ViewModel.PlatformUser.OwnerId+Model.ViewModel.PlatformUser.Email": "Email",
+    "EDI": {
+      "Role": {
+        "RBU": "RBU"
+      },
+      "Attachment": {
+
+        "Id": "Id",
+        "OrderId": "OrderId",
+        "Type": "Type",
+        "FileName": "File Name",
+        "OriginalFileName": "File Name",
+        "CreatedTime": "CreatedTime",
+        "CreatedBy": "CreatedBy",
+        "LastModifiedTime": "LastModifiedTime",
+        "LastModifiedBy": "LastModifiedBy",
+        "Order": "Order"
+      },
+      "UnresolvedTask": {
+        "Id": "Id",
+        "OrderId": "OrderId",
+        "Role": "Role",
+        "AssignedTo": "Assigned To",
+        "NotifyEmail": "Notify Email",
+        "Status": "Status",
+        "RelatedTo": "RelatedTo",
+        "DueDate": "DueDate",
+        "ErrorCode": "Error Code",
+        "ErrorMessage": "Error Message",
+        "ExternalContent": "External Content",
+        "Note": "Note",
+        "CreatedTime": "Created Time",
+        "CreatedBy": "Created By",
+        "LastModifiedTime": "LastModifiedTime",
+        "LastModifiedBy": "LastModifiedBy",
+        "Order": "Order"
+      },
+      "OrderDetail": {
+
+        "Id": "Id",
+        "OrderId": "OrderId",
+        "Status": "Status",
+        "POItem": "POItem",
+        "SOItem": "SOItem",
+        "MateriaNumber": "Materia Number",
+        "ModelName": "Model Name",
+        "PlugType": "Plug Type",
+        "Quantity": "Quantity",
+        "Price": "Price",
+        "QuotationNumber": "Quotation Number",
+        "ProjectName": "Project Name",
+        "RequestDate": "Request Date",
+        "ConfirmedDate": "Confirmed Date",
+        "PartialShipments": "Partial Shipments",
+        "CreatedTime": "Created Time",
+        "CreatedBy": "Created By",
+        "LastModifiedTime": "LastModified Time",
+        "LastModifiedBy": "LastModified By",
+        "Order": "Order"
+      },
+      "RecordBasedFieldMappingDetail": {
+
+        "Id": "Id",
+        "RecordBasedFieldMappingId": "Customer",
+        "Field": "Field",
+        "Content": "Content",
+        "MappingContent": "Mapping Content",
+        "Status": "Status",
+        "CreatedTime": "Created Time",
+        "CreatedBy": "Created By",
+        "LastModifiedTime": "LastModified Time",
+        "LastModifiedBy": "LastModified By",
+        "RecordBasedFieldMapping": "Customer",
+        "CustomerNumber": "Customer Number",
+        "CustomerName": "Customer Name"
+      },
+      "RecordBasedFieldMapping": {
+        "GoValueMappingButton": "Value Mapping",
+        "Id": "Id",
+        "CustomerNumber": "Customer Number",
+        "Status": "Status",
+        "Type": "Type",
+        "StartRow": "Star tRow",
+        "XmlPath": "Xml Path",
+        "PONumber": "PO Number",
+        "CompanyName": "Company Name",
+        "ShippingAddress": "Shipping Address",
+        "ShipmentType": "Shipment Type",
+        "Forwarder": "Forwarder",
+        "Incoterm": "Incoterm",
+        "BillToAddress": "Bill To Address",
+        "ProjectName": "Project Name",
+        "ModelName": "Model Name",
+        "PlugType": "Plug Type",
+        "Quantity": "Quantity",
+        "Price": "Price",
+        "QuotationNumber": "Quotation Number",
+        "RequestDate": "Request Date",
+        "PartialShipments": "Partial Shipments",
+        "CustomerName": "Customer Name"
+      },
+      "CustomerList": {
+        "Id": "Id",
+        "RBU": "RBU",
+        "CustomerNumber": "Customer Number",
+        "CustomerName": "Customer Name",
+        "Email": "Email",
+        "FirstName": "First Name",
+        "LastName": "Last Name",
+        "DateFormat": "Date Format",
+        "Thousands": "Amount Format",
+        "Currency": "Currency",
+        "TimeZone": "Time Zone",
+        "Status": "Status",
+        "SalesOrg": "Sales Org",
+        "SAPCustomerName": "SAPCustomerName"
+      },
+      "AmountFormat": {
+
+        "DisplayName": "Display Name",
+        "Format": "Format",
+        "Id": "Id"
+      },
+      "TimeZone": {
+        "DisplayNameLower": "Display Name",
+        "DisplayName": "Display Name",
+        "Id": "Id"
+      },
+      "Order": {
+        "UserOrderCreatedDate": "Created Date",
+        "AssignedTo": "Assigned To",
+        "ViewFilter": "View Filter",
+        "CustomerContact": "Customer Contact",
+        "ContactEmail": "Contact Email",
+        "CustomerName": "Customer Name",
+        "CustomerNumber": "Customer Number",
+        "Id": "Id",
+        "CustomerListId": "Customer List",
+        "EPONumber": "EPO Number",
+        "ShoppingCartNumber": "Shopping Cart Number",
+        "Currency": "Currency",
+        "PONumber": "PO Number",
+        "SONumber": "SO Number",
+        "ShippingAddress": "Shipping Address",
+        "ShipmentTypeName": "Shipment Type",
+        "ForwarderName": "Forwarder",
+        "Incoterm": "Incoterm",
+        "BillToAddress": "BillTo Address",
+        "OrderCreatedDate": "Created Date",
+        "Status": "Status",
+        "SoldTo": "SoldTo",
+        "ShipTo": "ShipTo",
+        "BillTo": "BillTo",
+        "CreatedTime": "Created Date",
+        "CreatedBy": "Created By",
+        "LastModifiedTime": "Last Modified Time",
+        "LastModifiedBy": "Last Modified By",
+        "Attachment": "Attachment",
+        "CustomerList": "Customer List",
+        "OrderDetail": "Order Detail",
+        "UnresolvedTask": "Unresolved Task"
+      },
+      "ZSAP_ZTSD0008A": {
+
+        "MANDT": "MANDT",
+        "VKORG": "VKORG",
+        "KUNNR": "CustomerNumber",
+        "SORT1": "SORT1",
+        "NAME1": "Name1",
+        "NAME2": "Name2",
+        "NAME_CO": "NAME_CO",
+        "TELF1": "TELF1",
+        "TELFX": "TELFX",
+        "WAERS": "WAERS",
+        "VKGRP": "VKGRP",
+        "STREET": "STREET",
+        "STREET2": "STREET2",
+        "STREET3": "STREET3",
+        "INCOTERM": "INCOTERM",
+        "PAYTERM": "PAYTERM",
+        "VTWEG": "VTWEG",
+        "VSBED": "VSBED",
+        "SNAME": "SNAME",
+        "RUFNM": "RUFNM",
+        "RUFNM2": "RUFNM2",
+        "SHPMARK1": "SHPMARK1",
+        "SHPMARK2": "SHPMARK2",
+        "SHPMARK3": "SHPMARK3",
+        "SHPMARK4": "SHPMARK4",
+        "SHPMARK5": "SHPMARK5",
+        "MARK1": "MARK1",
+        "MARK2": "MARK2",
+        "MARK3": "MARK3",
+        "PORT": "PORT",
+        "FDGRV": "FDGRV",
+        "RUFNM4": "RUFNM4",
+        "VWERK": "VWERK",
+        "LAND1": "LAND1",
+        "ORT01": "ORT01",
+        "PSTLZ": "PSTLZ",
+        "REGIO": "REGIO",
+        "ZDISCOUNT": "ZDISCOUNT",
+        "ZBANKACCT": "ZBANKACCT",
+        "PRAT3": "PRAT3",
+        "PIEMAIL": "PIEMAIL",
+        "DNEMAIL": "DNEMAIL",
+        "ZDISCOUNT2": "ZDISCOUNT2",
+        "ZEUVAT": "ZEUVAT",
+        "PRAT4": "PRAT4",
+        "SHIPEMAIL": "SHIPEMAIL"
+      }
+    },
+    "Platform": {
+      "MenuItem": {
+        "Type": "Type",
+        "Name": "Name",
+        "FunctionDeveloperName": "Function Developer Name",
+        "Url": "Url",
+        "CategoryName": "Category Name",
+        "無項目": "No Items",
+        "Icon": "Icon"
+      },
+      "Menu": {
+        "Name": "Name",
+        "Items": "Items"
+      },
+      "PlatformUser": {
+        "Notifycation": "Notification",
+        "RBU": "RBU",
+        "TimeZone": "Time Zone",
+        "EDIRole": "Role",
+
+        "LoginToUser": "Login",
+        "群組": "Group",
+        "權限": "Permission",
+        "產生Token": "Generation Token",
+        "Email": "Email",
+        "Account": "Account",
+        "Password": "Password",
+        "ConfirmPassword": "Confirm Password",
+        "Status": "Status",
+        "Name": "Name",
+        "Owner": "Owner",
+        "Owner.Name": "Owner",
+        "OwnerId": "Owner",
+        "Expire": "Expire",
+        "Token說明": "Token will Failure after password change"
+      },
+      "PlatformSystem": {
+        "Code": "Code",
+        "Name": "Name",
+        "Remark": "Remark",
+        "Status": "Status"
+      },
+      "Account": {
+        "Code": "Code",
+        "ParentAccountId": "Parent Account",
+        "Name": "Name",
+        "FullName": "Full Name",
+        "EName": "English Name",
+        "InvoiceTitle": "Invoice Title",
+        "TaxIDNumber": "TaxIDNumber",
+        "Telephone": "Telephone",
+        "Fax": "Fax",
+        "ZipCode": "ZipCode",
+        "Address": "Address",
+        "Remark": "Remark",
+        "ContactPersonName": "Contact Person",
+        "ContactPersonEName": "ContactPerson(English)",
+        "JobTitle": "Job Title",
+        "ContactPersonTelephone": "Phone",
+        "ContactPersonFax": "Fax",
+        "ContactPersonAddress": "Address",
+        "ContactPersonBackupEmail": "2nd Email",
+        "ContactPersonRemark": "Remark",
+        "Status": "Status",
+        "系統設定": "System",
+        "網域設定": "Domain",
+        "Detail": "Detail",
+        "Contact": "Contact",
+        "ParentAccount": "Parent Account"
+      },
+      "Role": {
+        "Name": "Name",
+        "Remark": "Remark",
+        "Status": "Status",
+        "AccountSystem": {
+          "Name": "Account System",
+          "Owner.Name": "Owner",
+          "OwnerId": "Owner",
+          "System.Name": "System",
+          "SystemId": "System"
+        }
+      },
+      "FunctionDetail": {
+        "Id": "Function Name",
+        "Permission": "Permission"
+      },
+      "SystemFunction": {
+        "SystemId": "System",
+        "DeveloperName": "DeveloperName",
+        "Name": "Name",
+        "Status": "Status"
+      },
+      "SystemDomainBinding": {
+        "Domain": "Domain",
+        "Status": "Status",
+        "AccountSystemId": "Account System",
+        "AccountSystem": {
+          "Name": "System",
+          "Owner.Name": "Account",
+          "OwnerId": "Account",
+          "System.Name": "System",
+          "SystemId": "System"
+        }
+      },
+      "AccountSystem": {
+        "網域設定": "Domain",
+        "Name": "Name",
+        "ActiveTime": "Active Time",
+        "ExpiryTime": "Expiry Time",
+        "SystemId": "System",
+        "OwnerId": "Account",
+        "Status": "Status",
+        "MenuId": "Menu(Optinal)",
+        "Menu.Name": "Menu"
+      },
+      "AccountSystemRef": {
+        "Name": "Name",
+        "OwnerId": "Account",
+        "SystemId": "System"
+      }
+    }
+
+  },
+  "ModulesFunctions": {
+    "Bossinfo.Module.EDI": {
+      "POList": "P.O. List",
+      "RecordBasedFieldMappingDetail": "RecordBased Value Mapping",
+      "RecordBasedFieldMapping": "RecordBased Field Mapping",
+      "CustomerList": "Customer List"
+    },
+    "Bossinfo.Module.GenericManagement": {
+      "User": "User",
+      "Role": "Group"
+    }
+  },
+  "Modules": {
+    "Bossinfo.Module.Platform": "Platform"
+  },
+  "Roles": {
+    "Create": "Create",
+    "Delete": "Delete",
+    "View": "View",
+    "Modify": "Edit",
+    "CreateToken": "Generate Token",
+    "WriteProductLine": "Edit Product Line",
+    "WriteUnresolveTask": "Edit Unresolve Task",
+    "LoginToUser": "Login To User"
+  },
+  "Function": {
+    "PlatformSystem": {
+      "Module": "Module",
+      "AllModules": "All Modules"
+    }
+  },
+  "ServerMessage": {
+    "ValidationError": "Validation Error",
+    "ErrorMessage": "Error Message",
+    "UserNotActive": "User Not Active"
+  },
+  "Validation": {
+    "Duplicate": "Duplicate"
+  },
+  "FormErrors": {
+    "maxlength": "max length {{requiredLength}}",
+    "required": "required",
+    "sameAs": "must same as {{compareWith}}",
+    "pattern": "not valid format",
+    "textareaNotAllowEmptyLine": "empty line is not valid"
+  },
+  "Enums": {
+    "DataStatus": {
+      "All": "All",
+      "Enabled": "On",
+      "Disabled": "Off"
+    },
+    "MenuItemType": {
+      "Function": "Function",
+      "Iframe": "Open url",
+      "OpenLink": "Open url(pop)"
+    },
+    "FunctionPermissionStatus": {
+      "Denied": "Denied",
+      "NotSet": "No Set",
+      "Granted": "Granted"
+    },
+    "AttachmentFileType": {
+      "Xml": "Xml",
+      "Excel": "Excel"
+    }
+  },
+  "Login": {
+    "Account": "Account",
+    "AccountSystemId": "System",
+    "Password": "Password",
+    "Login": "Login",
+    "帳號或密碼錯誤": "Account does not exist or wrong password",
+    "使用者帳號未啟用": "Account is disabled",
+    "尚未授權此系統": "Account not authorized"
+  },
+  "System": {
+    "PageNotFound": "Page Not Found!"
+  }
+}

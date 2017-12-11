@@ -1,0 +1,34 @@
+<form *ngIf="form">
+  <boss-layout>
+    <boss-row layout="left" class="actions" bossAutoFloating="main">
+      <boss-default-actions></boss-default-actions>
+      <ng-container *ngFor="let action of form.actions">
+        <button type="button" mat-raised-button *ngIf="action.visible" [disabled]="!action.enabled" [color]="action.color" (click)="action.click($event,form.model,form.key)">{{action.text|translate}}</button>
+      </ng-container>
+    </boss-row>
+    <ng-content select="[header]">
+
+    </ng-content>
+    <boss-row *ngFor="let layoutRow of this.form.formLayout">
+      <ng-container [ngSwitch]="layoutRow.typeName">
+        <ng-container *ngSwitchCase="'Array'">
+          <boss-control-wrapper [ngStyle]="metadata?.warpperControl?.styles" [ngClass]="metadata?.warpperControl?.classes" [attr.control-model-property]="metadata?.field" *ngFor="let metadata of layoutRow.data" [metadata]="metadata"></boss-control-wrapper>
+        </ng-container>
+        <ng-container *ngSwitchCase="'Tab'">
+          <mat-tab-group>
+            <mat-tab *ngFor="let tab of layoutRow.data" [label]="tab.tab|translate">
+              <boss-layout>
+                <boss-row *ngFor="let tabrow of tab.layout">
+                  <boss-control-wrapper [ngStyle]="metadata?.warpperControl?.styles" [ngClass]="metadata?.warpperControl?.classes" [attr.control-model-property]="metadata?.field" *ngFor="let metadata of tabrow" [metadata]="metadata"></boss-control-wrapper>
+                </boss-row>
+              </boss-layout>
+            </mat-tab>
+          </mat-tab-group>
+        </ng-container>
+      </ng-container>
+    </boss-row>
+    <ng-content select="[footer]">
+
+    </ng-content>
+  </boss-layout>
+</form>

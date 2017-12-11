@@ -1,0 +1,48 @@
+:host {
+  &.hidden {
+    opacity: 0;
+    display: none;
+  }
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  &:not([auto]) {
+    min-height: 100%;
+  }
+  &[auto] {
+    height: auto;
+  }
+  /deep/ {
+    >boss-row:not(.actions) {
+      margin-top: 20px;
+    }
+  }
+  &[layout="right"] {
+    justify-content: flex-end;
+  }
+  &[layout="left"] {
+    justify-content: flex-start;
+  }
+  &[layout="center"] {
+    justify-content: center;
+  }
+  &[layout="margin"] {
+    justify-content: space-around;
+    /deep/ {
+      >boss-row {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+  &[layout="stretch"] {
+    justify-content: space-between;
+    /deep/ {
+      >boss-row {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

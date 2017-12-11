@@ -1,0 +1,24 @@
+.grid {
+  flex-grow: 1;
+  /deep/ .permession {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    boss-radiolist {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+boss-layout {
+  flex: 1 1 auto;
+  flex-grow: 1;
+  boss-grid {
+    flex: 1 1 auto;
+    height: auto;
+  }
+}
+
+form {
+  display: flex;
+}

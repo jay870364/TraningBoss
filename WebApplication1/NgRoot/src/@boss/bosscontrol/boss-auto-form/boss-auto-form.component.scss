@@ -1,0 +1,17 @@
+:host {
+  .loader {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .actions {
+    >* {
+      margin: 5px;
+    }
+  }
+  mat-tab-group {
+    margin: 0;
+  }
+}

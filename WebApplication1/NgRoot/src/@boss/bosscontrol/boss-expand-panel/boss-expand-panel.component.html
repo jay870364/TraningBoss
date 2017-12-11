@@ -1,0 +1,13 @@
+<fieldset [ngClass]="{expanded:expanded}">
+  <legend>
+    <span [innerText]="legend"></span>
+    <button mat-button type="button" (click)="expanded=!expanded">
+      <mat-icon class="expand-icon">add</mat-icon>
+      <mat-icon class="collapse-icon">remove</mat-icon>
+    </button>
+  </legend>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+
+</fieldset>

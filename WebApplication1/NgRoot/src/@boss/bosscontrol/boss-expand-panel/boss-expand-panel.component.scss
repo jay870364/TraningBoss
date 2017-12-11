@@ -1,0 +1,34 @@
+$border: 1px solid rgba(0, 0, 0, 0.3);
+fieldset {
+  &.expanded {
+    border: $border;
+    .expand-icon {
+      display: none;
+    }
+  }
+  &:not(.expanded) {
+    border: 0;
+    .collapse-icon {
+      display: none;
+    }
+  }
+  legend {
+    color: rgba(0, 0, 0, 0.6);
+    button[mat-button] {
+      min-width: 0;
+    }
+  }
+  &:not(.expanded) {
+    .content {
+      height: auto;
+      max-height: 0;
+      overflow: hidden;
+    }
+  }
+  .content {
+    width: 100%;
+    max-height: 400px;
+    height: 100%;
+    transition: max-height .2s ease-in;
+  }
+}

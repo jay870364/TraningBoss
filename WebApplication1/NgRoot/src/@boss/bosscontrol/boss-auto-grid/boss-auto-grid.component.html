@@ -1,0 +1,23 @@
+<boss-grid #grid [fieldComponents]="fields" [sorting]="!edit" [sortStatus]="sortStatus" [scrolling]="scrolling" [autoLoad]="false"
+  [datasource]="this.datasource">
+  <boss-grid-header>
+    <div *ngIf="editmode" class="edit-mode-buttons">
+      <button *ngIf="!edit" mat-raised-button color="primary" (click)="editRows()">{{'BossControl.編輯'|translate}}</button>
+      <button *ngIf="edit" mat-raised-button (click)="edit=!edit">{{'BossControl.取消'|translate}}</button>
+      <button *ngIf="edit" mat-raised-button color="primary" (click)="saveRows()">{{'BossControl.儲存'|translate}}</button>
+    </div>
+    <div class="create" *ngIf="!edit">
+      <button *ngIf="showCreate" mat-raised-button color="primary" type="button" queryParamsHandling="merge" routerLink="createnew">{{'BossControl.新增'|translate}}</button>
+    </div>
+    <boss-grid-auto-filter [class.editing]="edit">
+
+    </boss-grid-auto-filter>
+  </boss-grid-header>
+  <a name="fields" #fieldsAnchor></a>
+  <boss-grid-empty>
+    {{'BossControl.查無資料'|translate}}
+  </boss-grid-empty>
+  <boss-grid-footer>
+    <boss-grid-paging [enabled]="!edit"></boss-grid-paging>
+  </boss-grid-footer>
+</boss-grid>

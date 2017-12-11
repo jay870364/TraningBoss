@@ -1,0 +1,8 @@
+<mat-form-field [formGroup]="group">
+  <input matInput [placeholder]="i18nName | translate" [matDatepicker]="picker" [formControlName]="controlName" [required]="required">
+  <mat-datepicker-toggle matSuffix  [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-hint *ngIf="hint">{{hint|translate}}</mat-hint>
+  <mat-error *ngIf="group.get(controlName).invalid">{{group.get(controlName).errors|errorMessage}}</mat-error>
+</mat-form-field>
+

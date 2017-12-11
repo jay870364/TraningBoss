@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  .anchor {
+    display: none;
+  }
+}
+
+:host /deep/ {
+  max-width: 100%;
+  >.flexfull {
+    flex: 1 1 0;
+    display: flex;
+    >* {
+      max-width: 100%;
+      flex: 1 1 0;
+    }
+  }
+}

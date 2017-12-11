@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+}
+
+.login-layout {
+  flex: 1 1 auto;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.login-frame {
+  min-width: 30%;
+  min-height: 30%;
+}

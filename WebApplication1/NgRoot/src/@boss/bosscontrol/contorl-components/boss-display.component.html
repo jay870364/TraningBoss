@@ -1,0 +1,4 @@
+<mat-form-field>
+  <input matInput [placeholder]="i18nName | translate" [value]="displayValue||''" [disabled]="true">
+  <mat-hint *ngIf="hint">{{hint|translate}}</mat-hint>
+</mat-form-field>

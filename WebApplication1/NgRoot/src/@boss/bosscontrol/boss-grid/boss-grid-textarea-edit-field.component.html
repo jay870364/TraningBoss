@@ -1,0 +1,7 @@
+﻿<ng-template #baseCellTemplate let-value let-entry="entry" let-index="index">
+  <span *ngIf="!editing" [innerHtml]="cellI18nNamesapce?(getCellValue(entry,value)|translate):getCellValue(entry,value)"></span>
+  <boss-textarea *ngIf="editing && autoGridEdit.formArray.controls[index]" [i18nNamespace]="autoGridEdit.i18nNamespace" [group]="autoGridEdit.formArray.controls[index]"
+    [controlName]="field">
+  </boss-textarea>
+</ng-template>
+<ng-template #baseHeaderTemplate let-header><span [innerText]="getHeader()|translate"></span></ng-template>

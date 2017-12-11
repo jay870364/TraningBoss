@@ -1,0 +1,25 @@
+<mat-dialog-content>{{'BossControl.確認檔案'|translate}}</mat-dialog-content>
+<mat-dialog-content>
+  <mat-list *ngFor="let file of files">
+    <mat-list-item *ngIf="file.isImage">
+      <div class="preview">
+        <img [src]="getImageUrl(file.file)" />
+      </div>
+      <div class="filename">
+        <span [textContent]="file.file.name"></span>
+      </div>
+    </mat-list-item>
+    <mat-list-item *ngIf="!file.isImage">
+      <div class="preview">
+        <mat-icon>insert_drive_file</mat-icon>
+      </div>
+      <div class="filename">
+        <span [textContent]="file.file.name"></span>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="accent" [matDialogClose]="true">{{'BossControl.確定'|translate}}</button>
+  <button mat-raised-button [matDialogClose]="false">{{'BossControl.取消'|translate}}</button>
+</mat-dialog-actions>

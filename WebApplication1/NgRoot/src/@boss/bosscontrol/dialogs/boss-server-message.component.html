@@ -1,0 +1,22 @@
+<h2 matDialogTitle>{{'ServerMessage.'+message.Type|translate}}</h2>
+<mat-dialog-content>
+  <ng-container [ngSwitch]="message.Type">
+    <ng-container *ngSwitchCase="'ValidationError'">
+      <ul class="error">
+        <li *ngFor="let e of message.Data" color="warn">
+          <span *ngIf="e.field">{{e.field|translate}}</span><span *ngIf="e.field">&nbsp;-&nbsp;</span><span>{{e.error|translate}}</span>
+        </li>
+      </ul>
+    </ng-container>
+    <ng-container *ngSwitchCase="'ErrorMessage'">
+      <p>{{message.Data|translate}}</p>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <pre>{{message.Data|json}}</pre>
+    </ng-container>
+  </ng-container>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="accent" matDialogClose="">{{'BossControl.確定'|translate}}</button>
+</mat-dialog-actions>

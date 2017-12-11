@@ -1,0 +1,5 @@
+<button mat-raised-button type="button" color="primary" (click)="form.save()" *ngIf="!form.isReadonly && userRole.hasRole('Modify')">{{'BossControl.儲存'|translate}}</button>
+<button mat-raised-button type="button" (click)="form.reset()" *ngIf="!form.isReadonly">{{'BossControl.重設'|translate}}</button>
+<button mat-raised-button type="button" color="primary" [routerLink]="['../']" queryParamsHandling="merge" *ngIf="form.isReadonly && userRole.hasRole('Modify')">{{'BossControl.編輯'|translate}}</button>
+<button mat-raised-button type="button" [routerLink]="['view']" queryParamsHandling="merge" *ngIf="!form.isReadonly && !form.isCreateNew">{{'BossControl.取消'|translate}}</button>
+<button mat-raised-button type="button" (click)="backList()">{{'BossControl.返回列表'|translate}}</button>

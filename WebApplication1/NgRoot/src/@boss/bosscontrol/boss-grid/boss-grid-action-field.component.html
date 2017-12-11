@@ -1,0 +1,8 @@
+﻿<ng-template #baseCellTemplate let-entry="entry">
+  <ng-container *ngFor="let action of actions">
+    <button mat-raised-button *ngIf="action.visible" type="button" [disabled]="!action.enabled" (click)="action.click($event,entry,entry[grid.datasource.identityProperty])"
+      [color]="action.color">{{action.text|translate}}</button>
+  </ng-container>
+
+</ng-template>
+<ng-template #baseHeaderTemplate let-header><span [innerText]="header||''"></span></ng-template>

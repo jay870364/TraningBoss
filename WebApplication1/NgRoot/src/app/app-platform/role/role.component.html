@@ -1,0 +1,49 @@
+<form *ngIf="form.formGroup" [formGroup]="form.formGroup">
+  <boss-layout>
+    <boss-row layout="left" class="actions" bossAutoFloating="main">
+      <boss-default-actions backUrl="/platform/role"></boss-default-actions>
+    </boss-row>
+    <boss-row>
+      <boss-reference *ngIf="userRole.hasRole('Bossinfo.Module.Platform')" [modelType]="accountSystemSelector.modelType" [group]="form.formGroup"
+        i18nNamespace="Model.Platform.Role" controlName="AccountSystemId" [displayFormatter]="accountSystemSelector.displayFormatter">
+      </boss-reference>
+      <mat-form-field>
+        <input matInput formControlName="Name" required [placeholder]="'Model.Platform.Role.Name'|translate">
+        <mat-error *ngIf="form.formGroup.get('Name').invalid">{{form.formGroup.get('Name').errors|errorMessage}}</mat-error>
+      </mat-form-field>
+      <boss-switch controlName="Status" [group]="form.formGroup" i18nNamespace="Model.Platform.Role">
+
+      </boss-switch>
+    </boss-row>
+    <boss-row class="grid" [formGroup]="form.formGroup">
+      <boss-grid #functionGrid [sorting]="false" *ngIf="systemFunctionDs" [datasource]="systemFunctionDs">
+        <boss-grid-serial-field verticalAlign="center"></boss-grid-serial-field>
+        <boss-grid-field field="DeveloperName" header="Id" verticalAlign="center" i18nNamespace="Model.Platform.FunctionDetail" cellI18nNamesapce="ModulesFunctions"></boss-grid-field>
+        <boss-grid-field field="Permission" width="460px" [cellClass]="{permession:true}" i18nNamespace="Model.Platform.FunctionDetail">
+          <boss-grid-cell-template>
+            <ng-template let-entry="entry" let-i="index">
+              <boss-grid [showHeader]="false" [scrolling]="false" [raised]="false" [datasource]="functionDetails[entry.DeveloperName].Roles">
+                <boss-grid-field width="150px" field="Name" align="center" verticalAlign="center">
+                  <boss-grid-cell-template>
+                    <ng-template let-value>
+                      {{'Roles.'+value|translate}}
+                    </ng-template>
+                  </boss-grid-cell-template>
+                </boss-grid-field>
+                <boss-grid-field align="center" verticalAlign="center" display="flex">
+                  <boss-grid-cell-template>
+                    <ng-template let-role="entry" let-value let-j="index">
+                      <boss-radiolist [showHeader]="false" controlName="Permission" [optionsI18nNamespace]="permessionStatus[enumI18nKey]" [group]="getRoleControl(entry.DeveloperName,role.Name)"
+                        [options]="options" i18nNamespace="Model.Role">
+                      </boss-radiolist>
+                    </ng-template>
+                  </boss-grid-cell-template>
+                </boss-grid-field>
+              </boss-grid>
+            </ng-template>
+          </boss-grid-cell-template>
+        </boss-grid-field>
+      </boss-grid>
+    </boss-row>
+  </boss-layout>
+</form>

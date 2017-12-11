@@ -1,0 +1,22 @@
+﻿<div class="app-menu-item" *ngIf="!menuItem.child || menuItem.child.length===0">
+  <a mat-button *ngIf="!menuItem.click" class="app-menu-btn" (click)="routeTo(menuItem.path)"  routerLinkActive="is-actived">
+    <mat-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
+    <span>{{menuItem.title}}</span>
+  </a>
+  <a mat-button *ngIf="menuItem.click" class="app-menu-btn" (click)="menuItem.click()">
+    <mat-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
+    <span>{{menuItem.title}}</span>
+  </a>
+</div>
+<div class="app-menu-child">
+  <div class="app-menu-group-title" (click)="expand=!expand" *ngIf="menuItem.child && menuItem.child.length">
+    <mat-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
+    <span>{{menuItem.title}}</span>
+    <mat-icon *ngIf="expand">expand_less</mat-icon>
+    <mat-icon *ngIf="!expand">expand_more</mat-icon>
+  </div>
+  <ng-container *ngIf="expand">
+    <app-menu-item *ngFor="let childItem of menuItem.child" [menuItem]="childItem"></app-menu-item>
+  </ng-container>
+
+</div>

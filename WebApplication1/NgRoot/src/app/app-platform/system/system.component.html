@@ -1,0 +1,80 @@
+<form (ngSubmit)="form.save()">
+  <boss-layout>
+    <boss-row>
+      <boss-layout [formGroup]="form.formGroup">
+        <boss-row layout="left" class="actions" bossAutoFloating="main">
+          <boss-default-actions backUrl="/platform/system"></boss-default-actions>
+        </boss-row>
+        <boss-row>
+          <mat-form-field>
+            <input matInput type="text" [placeholder]="'Model.Platform.PlatformSystem.Code'|translate" formControlName="Code">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" [placeholder]="'Model.Platform.PlatformSystem.Name'|translate" formControlName="Name">
+          </mat-form-field>
+          <boss-reference [modelType]="menuModelType" controlName="DefaultMenuId" field="Name" i18nNamespace="Model.Platform.PlatformSystem"
+            [group]="form.formGroup"></boss-reference>
+        </boss-row>
+        <boss-row>
+          <mat-slide-toggle formControlName="Status">
+            {{'Model.Platform.PlatformSystem.Status'|translate}}
+          </mat-slide-toggle>
+        </boss-row>
+      </boss-layout>
+    </boss-row>
+    <boss-row *ngIf="!form.isReadonly">
+      <boss-expand-panel [legend]="'Function.PlatformSystem.AllModules'|translate">
+        <boss-grid [datasource]="functionDetailDatasource">
+          <boss-grid-header>
+            <boss-grid-filter>
+              <mat-select bossGridFilterOperator="=" [placeholder]="'Function.PlatformSystem.Module'|translate" name="Module" ngModel>
+                <mat-option [value]="">{{'Common.All'|translate}}</mat-option>
+                <mat-option *ngFor="let module of (modules|async)" [value]="module">
+                  {{ 'Modules.'+module|translate }}
+                </mat-option>
+              </mat-select>
+            </boss-grid-filter>
+          </boss-grid-header>
+          <boss-grid-serial-field></boss-grid-serial-field>
+          <boss-grid-field width="45px">
+            <boss-grid-cell-template>
+              <ng-template let-entry="entry">
+                <button mat-raised-button type="button" [disabled]="checkFunctionExists(entry)" (click)="addFunction(entry)">
+                  <mat-icon>check</mat-icon>
+                </button>
+              </ng-template>
+            </boss-grid-cell-template>
+          </boss-grid-field>
+          <boss-grid-field field="Module" cellI18nNamesapce="Modules"></boss-grid-field>
+          <boss-grid-field field="Id"></boss-grid-field>
+          <boss-grid-field field="Id" header="Name" cellI18nNamesapce="ModulesFunctions"></boss-grid-field>
+        </boss-grid>
+      </boss-expand-panel>
+    </boss-row>
+    <boss-row [formGroup]="form.formGroup">
+      <boss-grid #functionGrid [sorting]="false" [datasource]="systemFunctionDatasource" formArrayName="SystemFunctions">
+        <boss-grid-serial-field></boss-grid-serial-field>
+        <boss-grid-field width="45px" align="center" *ngIf="!form.isReadonly">
+          <boss-grid-cell-template>
+            <ng-template let-entry="entry" let-i="index">
+              <button mat-raised-button type="button" (click)="removeFunction(entry,i)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </ng-template>
+          </boss-grid-cell-template>
+        </boss-grid-field>
+        <boss-grid-field field="Status" width="100px" align="center">
+          <boss-grid-cell-template>
+            <ng-template let-entry="entry" let-i="index">
+              <div [formGroupName]="i">
+                <mat-slide-toggle formControlName="Status"></mat-slide-toggle>
+              </div>
+            </ng-template>
+          </boss-grid-cell-template>
+        </boss-grid-field>
+        <boss-grid-field field="DeveloperName" header="Name" cellI18nNamesapce="ModulesFunctions"></boss-grid-field>
+        <boss-grid-field field="DeveloperName"></boss-grid-field>
+      </boss-grid>
+    </boss-row>
+  </boss-layout>
+</form>

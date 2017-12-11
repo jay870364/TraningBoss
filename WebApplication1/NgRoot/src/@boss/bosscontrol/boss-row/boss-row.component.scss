@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  &.hidden {
+    opacity: 0;
+  }
+  /deep/ {
+    >* {
+      margin-left: 2px;
+      margin-right: 2px;
+    }
+  }
+  &:not([layout]) {
+    /deep/ {
+      >* {
+        flex: 1 1 0;
+      }
+    }
+  }
+  &[layout="right"] {
+    justify-content: flex-end;
+  }
+  &[layout="left"] {
+    justify-content: flex-start;
+  }
+  &[layout="center"] {
+    justify-content: center;
+  }
+  &[layout="margin"] {
+    justify-content: space-around;
+    /deep/ {
+      >* {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+  &[layout="stretch"] {
+    justify-content: space-between;
+    /deep/ {
+      >* {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}

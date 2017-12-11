@@ -1,0 +1,33 @@
+<div class="login-layout" *ngIf="systemInfomations">
+  <fieldset class="login-frame" *ngIf="systemAvaliable">
+    <legend *ngIf="systemInfomations.length===1">{{systemInfomation.Name}}</legend>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <boss-layout>
+        <boss-row *ngIf="systemInfomations.length>1">
+          <mat-form-field>
+            <mat-select formControlName="AccountSystemId" [placeholder]="'Login.AccountSystemId'|translate">
+              <mat-option *ngFor="let sys of systemInfomations" [value]="sys.Id">{{sys.Name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </boss-row>
+        <boss-row>
+          <mat-form-field>
+            <input type="text" matInput formControlName="Account" [placeholder]="'Login.Account'|translate" />
+            <mat-error *ngIf="loginForm.get('Account').invalid">{{loginForm.get('Account').errors|errorMessage}}</mat-error>
+          </mat-form-field>
+        </boss-row>
+        <boss-row>
+          <mat-form-field>
+            <input type="password" matInput formControlName="Password" [placeholder]="'Login.Password'|translate" />
+            <mat-error *ngIf="loginForm.get('Password').invalid">{{loginForm.get('Password').errors|errorMessage}}</mat-error>
+          </mat-form-field>
+        </boss-row>
+        <boss-row>
+          <button type="submit" color="primary" mat-raised-button>{{'Login.Login'|translate}}</button>
+        </boss-row>
+      </boss-layout>
+    </form>
+  </fieldset>
+  <app-not-found *ngIf="!systemAvaliable"></app-not-found>
+</div>

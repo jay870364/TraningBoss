@@ -1,0 +1,27 @@
+mat-list-item {
+  min-width: 300px;
+  min-height: 50px;
+  display: flex;
+  flex-direction: row;
+  .preview {
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    mat-icon {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .filename {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px
+  }
+}

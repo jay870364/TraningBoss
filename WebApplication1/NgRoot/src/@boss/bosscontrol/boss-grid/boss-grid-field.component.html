@@ -1,0 +1,10 @@
+<ng-template #baseCellTemplate let-val let-entry="entry">
+  <a *ngIf="linkToView && !linkTo" [routerLink]="[entry[grid.datasource.identityProperty],'view']" queryParamsHandling="merge"
+    [innerHtml]="cellI18nNamesapce?(getCellValue(entry,val)|translate):getCellValue(entry,val)"></a>
+  <span *ngIf="!linkToView && !linkTo" [innerHtml]="cellI18nNamesapce?(getCellValue(entry,val)|translate):getCellValue(entry,val)"></span>
+  <a *ngIf="linkTo" [target]="linkToTarget" [href]="linkTo(entry,field,val)+(appendToken?('?auth='+getEncodeToken()):'')"
+    [innerHtml]="cellI18nNamesapce?(getCellValue(entry,val)|translate):getCellValue(entry,val)"></a>
+</ng-template>
+<ng-template #baseHeaderTemplate let-header>
+  <span [innerHtml]="getHeader()|translate"></span>
+</ng-template>

@@ -1,0 +1,10 @@
+<mat-dialog-content>{{'BossControl.擷取圖片'|translate}}
+  <span class="warn-color" *ngIf="data.message">{{data.message|translate}}</span>
+</mat-dialog-content>
+<mat-dialog-content>
+  <img-cropper [inputImage]="data.image" [image]="croppedData" [settings]="settings"></img-cropper>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="accent" [matDialogClose]="croppedData.image">{{'BossControl.確定'|translate}}</button>
+  <button mat-raised-button [matDialogClose]="undefined">{{'BossControl.取消'|translate}}</button>
+</mat-dialog-actions>

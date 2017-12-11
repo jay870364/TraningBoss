@@ -1,0 +1,9 @@
+<h4 matDialogTitle>
+  {{message|translate}}
+</h4>
+<mat-dialog-content>
+  <boss-auto-grid [showCreate]="false" [actions]="actions" [modelType]="modelType"></boss-auto-grid>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button [matDialogClose]="null">{{'BossControl.取消'|translate}}</button>
+</mat-dialog-actions>

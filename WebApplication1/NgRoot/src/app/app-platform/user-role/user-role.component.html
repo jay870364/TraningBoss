@@ -1,0 +1,19 @@
+<boss-layout>
+  <boss-row layout="left" class="actions" bossAutoFloating="main">
+    <button mat-raised-button type="button" *ngIf="userRole.hasRole('Modify')" color="primary" (click)="save()">{{'BossControl.儲存'|translate}}</button>
+    <button mat-raised-button type="button" *ngIf="userRole.hasRole('Modify')" (click)="reset()">{{'BossControl.重設'|translate}}</button>
+    <button mat-raised-button type="button" [routerLink]="['/platform','user']" queryParamsHandling="merge">{{'BossControl.取消'|translate}}</button>
+  </boss-row>
+  <ng-container *ngIf="array" [formGroup]="array">
+    <boss-row *ngFor="let systemRoles of roles">
+      <fieldset>
+        <legend>{{systemRoles.accountSystemName}}</legend>
+        <div class="roles">
+          <ng-container [formGroup]="role.group" *ngFor="let role of systemRoles.roles;let i = index;">
+            <mat-checkbox formControlName="Checked">{{role.role.Name}}</mat-checkbox>
+          </ng-container>
+        </div>
+      </fieldset>
+    </boss-row>
+  </ng-container>
+</boss-layout>

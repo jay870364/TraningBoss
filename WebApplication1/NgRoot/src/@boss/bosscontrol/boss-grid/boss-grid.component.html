@@ -1,0 +1,43 @@
+﻿<div class="outside" [ngClass]="{raised:raised}">
+  <div class="header" [hidden]="!this.header">
+    <ng-content select="boss-grid-header"></ng-content>
+    <ng-content select="boss-grid-filter"></ng-content>
+  </div>
+  <div class="header-columns" *ngIf="this.showHeader" [ngClass]="{scrolling:this.scrolling}">
+    <div class="hide-scroll auto-color"></div>
+    <div class="header-column-cells">
+      <div class="header-field cell-outlet" [ngStyle]="field.widthStyles" [attr.visible]="field.visible" *ngFor="let field of finalFields; let i = index" (click)="headerClick(field,$event)"
+        [ngClass]="{'no-sort':sorting===false||!field.field|| !field.sort,'is-sorting':sorting!==false&&field.sort && field.field && sortStatusMap[field.field]}">
+        <div grid-cell-content [ngStyle]="field.headerStyles" h-align="center" [attr.v-align]="field.verticalAlign">
+          <ng-container *ngIf="field.finalHeaderTemplate" [ngTemplateOutlet]="field.finalHeaderTemplate" [ngTemplateOutletContext]="{$implicit:field.header}">
+          </ng-container>
+        </div>
+        <div class="sorting-status auto-color" *ngIf="sorting!==false&&field.sort && field.field && sortStatusMap[field.field]">
+          <span *ngIf="sortStatus.length>1" [innerText]="sortStatusMap[field.field].idx"></span>
+          <mat-icon *ngIf="field.sort && field.field && sortStatusMap[field.field].dir===1">keyboard_arrow_up</mat-icon>
+          <mat-icon *ngIf="field.sort && field.field && sortStatusMap[field.field].dir===2">keyboard_arrow_down</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="loading" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="body grid-control" [hidden]="loading||!this.hasData" [ngClass]="{scrolling:this.scrolling}">
+    <div class="row" *ngFor="let entry of data; let i = index" [attr.boss-grid-identity]="entry.__boss_grid_identity">
+      <div class="cell-outlet" [ngStyle]="field.widthStyles" [attr.visible]="field.visible" *ngFor="let field of finalFields">
+        <div grid-cell-content [ngStyle]="field.getCellStyles(getValue(field.field,entry),entry)" [attr.h-align]="field.align"
+          [attr.v-align]="field.verticalAlign" [ngClass]="field.getCellClasses(getValue(field.field,entry),entry)">
+          <ng-container [ngTemplateOutlet]="field.finalCellTemplate" [ngTemplateOutletContext]="{$implicit:getValue(field.field,entry),entry:entry,index:i}"></ng-container>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="empty" *ngIf="!loading && !this.hasData">
+    <ng-content select="boss-grid-empty"></ng-content>
+  </div>
+  <div class="footer" [hidden]="!this.footer">
+    <ng-content select="boss-grid-footer"></ng-content>
+  </div>
+</div>
