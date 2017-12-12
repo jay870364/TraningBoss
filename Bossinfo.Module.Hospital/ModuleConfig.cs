@@ -16,26 +16,26 @@ namespace Bossinfo.Module.Hospital
 
             moduleBuilder.ModelRegister.RegisterContext(c => new HospitalContext());
 
-            moduleBuilder.ModelRegister.Register<his>()
-                .AddValidationTask(Mvc.Validators.UniqueValidationTask<his>.Check(e => e.ID));
+            //moduleBuilder.ModelRegister.Register<his>()
+            //    .AddValidationTask(Mvc.Validators.UniqueValidationTask<his>.Check(e => e.ID));
 
-            moduleBuilder.ModelRegister.Register<Hospital>()
-                .AddValidationTask(Mvc.Validators.UniqueValidationTask<Hospital>.Check(e => e.ID));
+            //moduleBuilder.ModelRegister.Register<Hospital>()
+            //    .AddValidationTask(Mvc.Validators.UniqueValidationTask<Hospital>.Check(e => e.ID));
 
-            moduleBuilder.ModelRegister.Register<orderregresult>()
-                .AddValidationTask(Mvc.Validators.UniqueValidationTask<orderregresult>.Check(e => e.ID));
+            //moduleBuilder.ModelRegister.Register<orderregresult>()
+            //    .AddValidationTask(Mvc.Validators.UniqueValidationTask<orderregresult>.Check(e => e.ID));
 
-            moduleBuilder.ModelRegister.Register<orderregresultdetail>()
-                .AddValidationTask(Mvc.Validators.UniqueValidationTask<orderregresultdetail>.Check(e => e.ID));
+            //moduleBuilder.ModelRegister.Register<orderregresultdetail>()
+            //    .AddValidationTask(Mvc.Validators.UniqueValidationTask<orderregresultdetail>.Check(e => e.ID));
 
 
             var moduleName = typeof(ModuleConfig).Namespace;
 
             moduleBuilder.FunctionBuilder.DefineFunction("his", moduleName)
-                .AddStandarRoles<his>();
-                //.AddQuerySettings<his>(new QueryGuardBuilder<his>()
-                //.Build()
-                //); // Setting rights of CRUD
+                .AddStandarRoles<his>()
+                .AddQuerySettings<his>(new QueryGuardBuilder<his>()
+                .Build()
+                ); // Setting rights of CRUD
 
             moduleBuilder.FunctionBuilder.DefineFunction("Hospital", moduleName)
                .AddStandarRoles<Hospital>()

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bossinfo.Models.HelloWorld
+namespace Bossinfo.Models.HelloWorldBack
 {
     public class HelloWorldContext : DbContext
     {

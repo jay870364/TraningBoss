@@ -9,7 +9,7 @@ namespace Bossinfo.Models.Hospital
 {
     public class HospitalContext : DbContext
     {
-        public DbSet<his1> his { get; set; }
+        public DbSet<his> his { get; set; }
         public DbSet<hospital> hospital { get; set; }
         public DbSet<orderregresult> orderregresult { get; set; }
         public DbSet<orderregresultdetail> orderregresultdetail { get; set; }
